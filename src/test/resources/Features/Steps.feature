@@ -1,8 +1,8 @@
 Feature:Mail Testning
 Background:
-  Given i am on the email regrestration page
+  Given i am on the email regrestration page https://login.mailchimp.com/signup/
   @mytag
-  Scenario Outline:Skapande av användare
+  Scenario Outline:User sign up
     Given I have entered <email>
     And I have also entered <username>
     And I have also entered <password>
