@@ -9,12 +9,19 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class StepDefinitions{
-    @Given("i am on the email regrestration page https:\\/\\/login.mailchimp.com\\/signup\\/")
-    public void i_am_on_the_email_regrestration_page_https_login_mailchimp_com_signup(){
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    private WebDriver driver;
+    @Given("i am on the email regrestration page in {string} https:\\/\\/login.mailchimp.com\\/signup\\/")
+    public void i_am_on_the_email_regrestration_page_in_https_login_mailchimp_com_signup(String browser){
+        WebDrivers creator = new WebDrivers();
+        driver = creator.createBrowser(browser);
+        driver.get("https://login.mailchimp.com/signup/");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @Given("I have entered ")
     public void i_have_entered(){

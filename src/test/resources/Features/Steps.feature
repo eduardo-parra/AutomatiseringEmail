@@ -1,6 +1,6 @@
 Feature:Mail Testning
 Background:
-  Given i am on the email regrestration page https://login.mailchimp.com/signup/
+  Given i am on the email regrestration page in "chrome" https://login.mailchimp.com/signup/
   @mytag
   Scenario Outline:User sign up
     Given I have entered <email>
@@ -10,6 +10,7 @@ Background:
     Then the result should be <message> on the screen
     Examples:
       |email|username|password|message |
+      |"Gmail"|"validU"|"LöSen"|        |
       |     |        |        |        |
       |     |        |        |        |
-      |     |        |        |        |
+
