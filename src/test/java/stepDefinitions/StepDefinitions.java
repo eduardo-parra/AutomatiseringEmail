@@ -1,15 +1,10 @@
 package stepDefinitions;
-
-
-
-       // System.setProperty("webdriver.chrome.driver", "D:\\Eduardo\\Selenium\\chromedriver.exe");
-        //driver = new ChromeDriver();
-        //driver.get("ENTER WEBB ADRESS!!!");
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,16 +18,19 @@ public class StepDefinitions{
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    @Given("I have entered ")
-    public void i_have_entered(){
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("I have input {string}")
+    public void i_have_input(String string) {
+        WebElement input = driver.findElement(By.id("email"));
     }
-    @Given("I have also entered ")
-    public void i_have_also_entered(){
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("I have also input {string}")
+    public void i_have_also_input(String string) {
+        WebElement input = driver.findElement(By.id("new_username"));
     }
+    @Given("I have also input pasword {string}")
+    public void i_have_input_pasword(String string) {
+        WebElement input = driver.findElement(By.id("new_password"));
+    }
+
     @When("I press signup")
     public void i_press_signup(){
         // Write code here that turns the phrase above into concrete actions
