@@ -10,6 +10,9 @@ Background:
     Then the result should be <message> on the screen
     Examples:
       |email|username|password|message |
-      |"Gmail"|"validU"|"LöSen"|  "wow"      |
+      |"emailValid"|"validUser"|"LöSen1=?"|  "wow"  |
+      |"emailValid"| "100longUser"|"LöSen1=?"|   "" |
+    |"emailValid"  | "alredyUser" |"LöSen1=?"|   ""      |
+    | "noEmail" | "validUser" |  "LöSen1=?"     |  ""  |
 
 
