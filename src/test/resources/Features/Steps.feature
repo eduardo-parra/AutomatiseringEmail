@@ -10,9 +10,9 @@ Background:
     Then the result should be <message> on the screen
     Examples:
       |email|username|password|message |
-      |"emailValid"|"validUser"|"LöSen1=?"|  "wow"  |
-      |"emailValid"| "100longUser"|"LöSen1=?"|   "" |
-    |"emailValid"  | "alredyUser" |"LöSen1=?"|   ""      |
-    | "noEmail" | "validUser" |  "LöSen1=?"     |  ""  |
+      |"emailValid"|"validUser"|"LöSen1=?"|  "Check your email"  |
+      |"emailValid"| "100longUser"|"LöSen1=?"|"Enter a value less than 100 characters long"|
+    |"emailValid"  | "alredyUser" |"LöSen1=?"|"Another user with this username already exists. Maybe it's your evil twin. Spooky."|
+    | "noEmail" | "validUser" |  "LöSen1=?"  |"Please enter a value"|
 
 

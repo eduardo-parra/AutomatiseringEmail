@@ -14,6 +14,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class StepDefinitions{
 
 
@@ -26,6 +28,8 @@ public class StepDefinitions{
     }
 
     private WebDriver driver;
+    private WebElement result;
+
     @Given("i am on the email regrestration page in {string} https:\\/\\/login.mailchimp.com\\/signup\\/")
     public void i_am_on_the_email_regrestration_page_in_https_login_mailchimp_com_signup(String browser){
         WebDrivers creator = new WebDrivers();
@@ -87,14 +91,29 @@ public class StepDefinitions{
 
     }
     @Then("the result should be  on the screen")
-    public void the_result_should_be_on_the_screen(){
+    public void the_result_should_be_on_the_screen(String message){
 
+        if (message.equals("Check your email")) {
+            result = driver.findElement(By.cssSelector(".\\!margin-bottom--lv3"));
+
+        } else {
+            result = driver.findElement(By.cssSelector(".invalid-error"));
+
+        }
+
+        assertEquals(message, result.getAttribute("innerText"));
+        System.out.println(result.getAttribute("innerText") + " = " + message);
+
+        driver.quit();
     }
 
 
-
-
 }
+
+
+
+
+
 
 
 
